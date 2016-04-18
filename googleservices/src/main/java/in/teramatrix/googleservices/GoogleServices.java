@@ -3,7 +3,6 @@ package in.teramatrix.googleservices;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -26,13 +25,14 @@ import in.teramatrix.googleservices.service.ReverseGeocoder;
 import in.teramatrix.googleservices.service.RouteDesigner;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   3/18/2016
- * Description  :   Main Class of the module that will be capable to call all the services from one place. Even Those
- *                  services can be also called individually, but this class will provide more encapsulated methods.
- *                  Each method of this class contains its documentation comments please refer them to know more.
- * </pre>
+ * Main Class of the module that will be capable to call all the services from one place. Even Those services can be also called individually,
+ * but this class will provide more encapsulated methods. Each method of this class contains its documentation comments please refer them to know more.
+ * Although {@link in.teramatrix.googleservices.service.GoogleAnalyst}, {@link in.teramatrix.googleservices.service.Locator},
+ * {@link in.teramatrix.googleservices.service.FusedLocationProvider} like services are not used in this class, you have to use them directly without
+ * an instance of this class.
+ *
+ * @author Mohsin Khan
+ * @date 3/18/2016
  */
 public class GoogleServices {
     /**
@@ -53,15 +53,13 @@ public class GoogleServices {
     /**
      * This method will simply return an instance of {@link GoogleMap}. Primarily It will create an object of {@link MapView}
      * then call some necessary methods and at last return the {@link GoogleMap}.
-     * @param mapViewId id of {@link MapView} like {@code R.id.mapView}
+     * @param mapView instance of {@link MapView} to convert it into {@link GoogleMap}
      * @param savedInstanceState to be passed in {@code onCreate()} of {@link MapView}
      * @return instance of {@link GoogleMap}
      */
-    public GoogleMap getMap(int mapViewId, Bundle savedInstanceState) {
-        MapView mapView = (MapView) ((AppCompatActivity) context).findViewById(mapViewId);
+    public GoogleMap getMap(MapView mapView, Bundle savedInstanceState) {
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
-
         MapsInitializer.initialize(context);
         return mapView.getMap();
     }

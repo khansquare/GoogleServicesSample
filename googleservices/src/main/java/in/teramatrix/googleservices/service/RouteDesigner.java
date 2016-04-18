@@ -31,13 +31,14 @@ import static in.teramatrix.googleservices.exception.CorruptedResponseException.
 import static in.teramatrix.googleservices.exception.CorruptedResponseException.STATUS_NOT_OK;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   1/5/2016
- * Description  :   This class is written to design routes on the Google Map.
- *                  This class is structured to use Google Maps Directions API using Builder Pattern.
- *                  Full description : https://developers.google.com/maps/documentation/directions/intro#Introduction
- * </pre>
+ * The Google Maps Directions API is a service that calculates directions between locations using an HTTP request. This class is written
+ * to design routes on the Google Map. It is easy to use class having Builder Pattern. You can search for directions for several modes of
+ * transportation, including transit, driving, walking or cycling. Directions may specify origins, destinations and waypoints either as
+ * text strings (e.g. "Chicago, IL" or "Darwin, NT, Australia") or as latitude/longitude coordinates. The Directions API can return multi-part
+ * directions using a series of waypoints. <strong>But this class can only process {@link LatLng} so please don't pass origin/desination or
+ * waypoints as string.</strong>
+ * @author Mohsin Khan
+ * @date 1/5/2016
  */
 @SuppressWarnings("unused")
 public class RouteDesigner extends AsyncTask<LatLng, Void, Polyline[]> {

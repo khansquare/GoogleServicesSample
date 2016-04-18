@@ -24,11 +24,15 @@ import in.teramatrix.googleservices.util.CoordinateUtilities;
 import in.teramatrix.googleservices.util.GoogleMapUtilities;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   4/13/2016
- * Description  :   This class is designed to show current location on {@link GoogleMap}.
- * </pre>
+ * This class is designed to show current location on {@link GoogleMap}. Here A {@link Marker} and a {@link Circle} will be plotted on the map.
+ * Marker will show the position and circle will show accuracy of location. To animate circle according to increment and decrement in location
+ * accuracy, a method is defined that is {@code animateCircle()}. There is two methods to make this class work, these are {@code locate()} and
+ * {@code locateMe()}. In {@code locate()}, you can pass any location but on the other hand, in {@code lcoateMe()}, {@link FusedLocationProvider}
+ * will be used to get location and only current location will shown on the map. {@code locateMe()} will return the running instance of
+ * {@link FusedLocationProvider} so you can stop location updates anytime by calling {@code stop()} method of {@link FusedLocationProvider} class
+ * or to stop locating, just call {@code stop()} of this class. It will remove {@link Marker} and {@link Circle} also.
+ * @author Mohsin Khan
+ * @date 4/13/2016
  */
 @SuppressWarnings("unused")
 public class Locator {
@@ -230,6 +234,9 @@ public class Locator {
         }
     }
 
+    /**
+     * @param circle circle to be animated
+     */
     private void animateCircle(final Circle circle) {
         ValueAnimator vAnimator = new ValueAnimator();
         vAnimator.setRepeatCount(ValueAnimator.INFINITE);

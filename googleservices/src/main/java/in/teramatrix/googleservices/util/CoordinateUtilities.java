@@ -8,11 +8,10 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.Date;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   4/15/2016
- * Description  :   Implemented methods are some basic operation on Coordinate system.
- * </pre>
+ * Working on some basic operations on our Global Coordinate System. Class is designed to extend the use of {@link LatLng}
+ * and {@link Location} objects.
+ * @author Mohsin Khan
+ * @date 4/15/2016
  */
 @SuppressWarnings("unused")
 public class CoordinateUtilities {
@@ -69,7 +68,22 @@ public class CoordinateUtilities {
         double dLon = Math.toRadians(lon2 - a.longitude);
         double Bx = Math.cos(lat2) * Math.cos(dLon);
         double By = Math.cos(lat2) * Math.sin(dLon);
-        return new LatLng(Math.toDegrees(Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + Bx) * (Math.cos(lat1) + Bx) + By * By))),
-                Math.toDegrees(lon1 + Math.atan2(By, Math.cos(lat1) + Bx)));
+        return new LatLng(Math.toDegrees(Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + Bx) *
+                (Math.cos(lat1) + Bx) + By * By))), Math.toDegrees(lon1 + Math.atan2(By, Math.cos(lat1) + Bx)));
+    }
+
+    /**
+     * @param a starting point
+     * @param b ending point
+     * @return distance between these two points
+     */
+    private double getDistance(LatLng a, LatLng b) {
+        double earthRadius = 6371; //in kilometers
+        double dLat = Math.toRadians(b.latitude-a.latitude);
+        double dLng = Math.toRadians(b.longitude-a.longitude);
+        double x = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(Math.toRadians(a.latitude))
+                * Math.cos(Math.toRadians(b.latitude)) * Math.sin(dLng/2) * Math.sin(dLng/2);
+        double y = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1-x));
+        return earthRadius * y;
     }
 }

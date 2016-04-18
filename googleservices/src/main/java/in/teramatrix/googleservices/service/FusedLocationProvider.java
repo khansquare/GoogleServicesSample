@@ -11,13 +11,11 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   15/4/2016
- * Description  :   At the time, <a href="https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#top_of_page">
- *                  Fused Location Provider Api</a> is the best way to get current location update. This class is a simple illustration of this API.
- *                  The main entry point for interacting with the fused location provider is {@link GoogleApiClient}.
- * </pre>
+ * At the time, <a href="https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#top_of_page">
+ * Fused Location Provider Api</a> is the best way to get current location update. This class is a simple illustration of this API.
+ * The main entry point for interacting with the fused location provider is {@link GoogleApiClient}.
+ * @author Mohsin Khan
+ * @date 15/4/2016
  */
 @SuppressWarnings("unused")
 public class FusedLocationProvider implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {

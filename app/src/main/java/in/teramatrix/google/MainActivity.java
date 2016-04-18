@@ -9,6 +9,7 @@ import android.util.Log;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -34,6 +35,10 @@ import in.teramatrix.googleservices.service.PlacesExplorer;
 import in.teramatrix.googleservices.service.ReverseGeocoder;
 import in.teramatrix.googleservices.service.RouteDesigner;
 
+/**
+ * Lets see how to use Google Services Module
+ * @author Mohsin Khan
+ */
 @SuppressWarnings({"unused", "FieldCanBeLocal"})
 public class MainActivity extends AppCompatActivity {
 
@@ -56,12 +61,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         googleAnalyticsUsage();
         services = new GoogleServices(this);
-        map = services.getMap(R.id.mapView, savedInstanceState);
+        map = services.getMap((MapView) findViewById(R.id.mapView), savedInstanceState);
         map.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
             public void onMapLoaded() {
                 //locatorUsage();
-                //fusedLocationUsage();
+                fusedLocationUsage();
                 //Locator locator = new Locator(map);
                 //locator.locateMe(MainActivity.this);
                 /*callGeocodingAsync();
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    //Tested
     private void fusedLocationUsage() {
         final Locator locator = new Locator(map);
         FusedLocationProvider provider = new FusedLocationProvider()
@@ -105,12 +110,13 @@ public class MainActivity extends AppCompatActivity {
         //fusedLocationProvider.stop();
     }
 
+    //Tested
     private void locatorUsage() {
         Locator locator = new Locator(map)
                 .setAccuracyLayer(true)
-                .setMarkerIcon(R.mipmap.ic_launcher)
-                .setFillColor("#32FF4081")
-                .setStrokeColor("#FF4081");
+                .setMarkerIcon(R.drawable.ic_current_location)
+                .setFillColor("#3273b7ff")
+                .setStrokeColor("#4487f2");
         locator.locateMe(this);
     }
 

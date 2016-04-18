@@ -21,12 +21,11 @@ import static in.teramatrix.googleservices.exception.CorruptedResponseException.
 import static in.teramatrix.googleservices.exception.CorruptedResponseException.STATUS_NOT_OK;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   1/5/2016
- * Description  :   This class is written for Reverse Geo Coding.
- *                  It means this will get address line using {@link LatLng}
- * </pre>
+ * A class for handling geocoding. Geocoding is the process of transforming a street address or other description of a location into
+ * a (latitude, longitude) coordinate. To get LatLng of specified address, we are interacting to the Google Server (callling Api)
+ * and broadcasting results in {@link in.teramatrix.googleservices.service.Geocoder.GeocodingListener} after parsing JSON.
+ * @author Mohsin Khan
+ * @date 1/5/2016
  */
 @SuppressWarnings("unused")
 public class Geocoder extends AsyncTask<String, Void, LatLng> {

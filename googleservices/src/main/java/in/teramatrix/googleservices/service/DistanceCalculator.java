@@ -25,14 +25,12 @@ import static in.teramatrix.googleservices.exception.CorruptedResponseException.
 import static in.teramatrix.googleservices.exception.CorruptedResponseException.STATUS_NOT_OK;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   21/3/2016
- * Description  :   Retrieve duration and distance values based on the recommended route between start and end points. But this class
- *                  has been designed to get distances/durations between a single origin and multiple destination. It is something like one to may
- *                  relationship.
- *                  See <a href="https://developers.google.com/maps/documentation/distance-matrix/">Google Maps Distance Matrix API</a>
- * </pre>
+ * Retrieve duration and distance values based on the recommended route between start and end points. But this class
+ * has been designed to get distances/durations between a single origin and multiple destination. It is something like one to may
+ * relationship.
+ * See <a href="https://developers.google.com/maps/documentation/distance-matrix/">Google Maps Distance Matrix API</a>
+ * @author Mohsin Khan
+ * @date 21/3/2016
  */
 
 @SuppressWarnings("unused")

@@ -16,12 +16,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 
 /**
- * <pre>
- * Author       :   Mohsin Khan
- * Date         :   3/21/2016
- * Description  :   Class has been constructed to collect some common utilities of Google Maps for example moving or animating
- *                  map camera to particular location or on a group of locations, plotting marker, removing polylines etc.
- * </pre>
+ * Class has been constructed to collect some common utilities of Google Maps for example moving or animating
+ * map camera to particular location or on a group of locations, plotting marker, removing polylines etc.
+ * @author Mohsin Khan
+ * @date 3/21/2016
  */
 @SuppressWarnings("unused")
 public class GoogleMapUtilities {
